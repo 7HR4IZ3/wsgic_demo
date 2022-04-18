@@ -2,10 +2,15 @@
 wsgic demo app
 just run main.py
 
-# Dispatched apps files
-web, users -> Bottle App
-flas.py -> flask app
-test, main -> Django app and config(test)
-pyr.py -> Pyramid app
+# Dispatched wsgi apps files
+ `web`, `users` -> Bottle App
 
-# How to dispatch
+`flas.py` -> flask app
+
+`test`, `main` -> Django app and config(test)
+
+`pyr.py` -> Pyramid app
+
+# How to dispatch wsgi app
+`web/urls.py`:
+`python`
