@@ -13,4 +13,23 @@ just run main.py
 
 # How to dispatch wsgi app
 `web/urls.py`:
-`python`
+```python
+
+from .views import HomeView, ArticleView
+
+hv = HomeView()
+av = ArticleView()
+
+mount = "/"
+
+# Routhing scheme for wsgic
+routes = {}
+routes['/'] = (hv.index, ["GET", "POST"], "homepage") # routes[route] = (function, method(s), name, apply(plugin))
+routes["/test"] = (hv.test, "GET", "async")
+
+routes["/users"] = "users::bottle" # bottle wsgi app
+routes['/django'] = "test::django" # django wsgi app
+routes["/flask"] = "flas.app::flask" # flask wsgi app
+routes["/pyramid"] = "pyr.app::pyramid" # pyramid wsgi app
+
+routes["/article"] = (av, "GET")
